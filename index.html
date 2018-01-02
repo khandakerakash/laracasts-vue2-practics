@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Basic Data Binding</title>
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="display-4 text-center">Example of "Basic Data Binding"</h1>
+            <hr>
+        </div>
+        <div class="col-lg-8 offset-lg-2 ">
+            <div id="root">
+                <input type="text" class="form-control form-control-lg" v-model="message">
+                <p class="lead">The value of the input is: {{message}}.</p>
+                <ul class="list-group">
+                    <li class="list-group-item active"><i class="fa fa-check-square-o fa-2x"></i> Example of foreach loop</li>
+                    <li class="list-group-item" v-for="name in names">{{name}}</li>
+                </ul>
+                <br>
+                <div class="input-group">
+                    <input type="text" class="form-control" v-model="newName">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" @click="addName">Add Name</button>
+                    </span>
+                </div><br>
+                <ul class="list-group">
+                    <li class="list-group-item active"><i class="fa fa-check-square-o fa-2x"></i> Example of attribute biding</li>
+                </ul>
+                <br>
+                <button class="btn btn-info" type="button" v-bind:title="title">Hover Me</button>
+                <br>
+                <br>
+                <ul class="list-group">
+                    <li class="list-group-item active"><i class="fa fa-check-square-o fa-2x"></i> All Tasks (Example of v-if / if-else logic)</li>
+                    <li class="list-group-item" v-for="task in tasks" v-text="task.description"></li>
+                    <li class="list-group-item active">Incompleted Task</li>
+                    <li class="list-group-item" v-for="task in incompleteTasks" v-text="task.description"></li>
+                </ul>
+            </div><!-- /#root -->
+        </div>
+    </div>
+</div>
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- Vue Library -->
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+
+<!-- Vue Scripts -->
+<script>
+
+    let app = new Vue({
+        el: '#root',
+        data: {
+            message: 'Hello world, I am from Bangladesh',
+            newName: '',
+            names: ['Khandkae Akash', 'Tapos Gosh', 'Mkh Sojib', 'Tushar'],
+            title: 'Now the title being set through JavaScript!',
+            tasks: [
+                {description: 'Go to the store', completed: true},
+                {description: 'Go to the College', completed: false},
+                {description: 'Go to the Office', completed: false},
+                {description: 'Go to the Home', completed: true},
+                {description: 'Go to the Uttara', completed: false},
+                {description: 'Go to the Dhanmondi', completed: true},
+                {description: 'Go to the Hall', completed: false},
+            ]
+        },
+
+        methods: {
+
+            addName() {
+
+                this.names.push(this.newName);
+                this.newName='';
+            }
+        },
+
+        computed: {
+
+            incompleteTasks() {
+
+                return this.tasks.filter(task => ! task.completed);
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
