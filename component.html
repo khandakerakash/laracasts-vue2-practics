@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Basic Data Binding</title>
+    <title>Vue | Component</title>
     <!-- Font-Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap CSS -->
@@ -38,38 +38,36 @@
             </div>
         </nav>
     </div>
-</header>
+</header><!-- /header -->
 
-<section id="welcome-section">
+<section id="vue-component-section">
     <div class="container">
-        <div class="col-lg-12">
-            <div class="welcome-text">
-                <h1 class="display-4">This is the vuejs-2 tutorial practice of laracasts.</h1>
-                <p class="lead">I am trying to learn Vue 2: Step By Step of Laracasts.
-                    They give us Vue 2 concepts very easily. And Its important to front-end development, especially Single Page application (SPA).</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="display-4 text-center">Vue Components</h1>
+                <hr>
+            </div>
+            <div class="col-lg-8 offset-lg-2 ">
+                <div id="component-root">
+                    <task-list></task-list>
+                    <task></task>
+                    <br>
+                    <message title="Hello, Guys" body="With supporting text below as a natural lead-in to additional content."></message>
+                    <br>
+                    <message title="Hello, Shezan" body="Bla Bla Bla..."></message>
+                    <br>
+                    <message title="Hello, Tushar" body="Bla Bla Bla..."></message>
+                    <br>
+                    <model v-if="showModal"></model>
+                    <button class="btn btn-primary" @click="showModal = true">Show Modal</button>
+                    <br>
+                </div><!-- /#component-root -->
             </div>
         </div>
     </div>
 </section>
 
-<section id="vue-example-code">
-    <div class="container">
-        <div class="col-lg-12">
-            <div class="vue-code">
-                <pre><code>
-                    let app = new Vue({
-                         el: '#root',
-                         data: {
-                            message: 'Hello world, I am from Bangladesh'
-                         },
-                    });
-                </code></pre>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer class="footer">
+<footer id="footer">
     <div class="container">
         <span class="text-muted">All Right Reserved | <a href="http://khandakerakash.me/">Khandaker Akash</a> &copy; 2017 </span>
     </div>
@@ -79,5 +77,15 @@
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- Customs Scripts -->
+<script src="assets/js/scripts.js"></script>
+
+<!-- Vue Library -->
+<script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>
+
+<!-- Vue Scripts -->
+<script src="assets/vue/main.js"></script>
+
 </body>
 </html>
